@@ -1,0 +1,91 @@
+/* ═══ A · BUBBLE ═══════════════════════════════════════════
+   Rounded, weightless, pastel. Baloo Bhaijaan 2 + Readex Pro. */
+
+.bu {
+  --display: "Baloo Bhaijaan 2", "Readex Pro", system-ui, sans-serif;
+  --text: "Readex Pro", system-ui, sans-serif;
+  --bg: #F5FBFB;
+  --surface: #FFFFFF;
+  --ink: #0B1622;
+  --muted: #526170;
+  --line: rgba(11, 22, 34, .08);
+  --line-strong: rgba(11, 22, 34, .16);
+  --radius: 26px;
+  --radius-lg: 38px;
+  --shadow: 0 18px 44px rgba(11, 70, 80, .08);
+  /* neutral = brand teal; adults = mint & aqua; kids = peach & butter */
+  --n-accent: #077A74; --n-ink: #06706A; --n-soft: #E1F6F2; --n-soft2: #FFF0E4; --n-on: #FFFFFF;
+  --a-accent: #077A74; --a-ink: #06706A; --a-soft: #DDF5F1; --a-soft2: #D9EEFB; --a-on: #FFFFFF;
+  --k-accent: #D65A3F; --k-ink: #B8442C; --k-soft: #FFE9DC; --k-soft2: #FFF4CC; --k-on: #FFFFFF;
+}
+.bu .z-h1 { font-weight: 800; line-height: 1.15; }
+.bu .z-h2 { font-weight: 700; }
+.bu .z-h1 em, .bu .z-h2 em { color: var(--accent-ink); position: relative; }
+.bu .z-h1 em::after { content: ""; position: absolute; inset-inline: -4px; bottom: 0.08em; height: 0.28em; border-radius: 999px; background: var(--soft); z-index: -1; }
+.bu .z-kicker { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; background: var(--soft); width: fit-content; }
+.bu .z-shead.is-center .z-kicker { margin-inline: auto; }
+
+/* Drifting pastel washes behind heroes */
+.bu-blobs { position: absolute; inset: 0; overflow: hidden; z-index: -1; pointer-events: none; }
+.bu-blobs i { position: absolute; width: 46vw; max-width: 620px; aspect-ratio: 1; border-radius: 50%; filter: blur(40px); opacity: .7; animation: bu-drift 18s ease-in-out infinite alternate; }
+.bu-blobs i:nth-child(1) { background: var(--a-soft); inset-block-start: -18%; inset-inline-start: -10%; }
+.bu-blobs i:nth-child(2) { background: var(--k-soft); inset-block-start: 20%; inset-inline-end: -12%; animation-delay: -6s; }
+.bu-blobs i:nth-child(3) { background: #EDE6FF; inset-block-end: -30%; inset-inline-start: 30%; animation-delay: -12s; }
+.bu-whero[data-w] .bu-blobs i:nth-child(1), .bu-whero[data-w] .bu-blobs i:nth-child(2) { background: var(--soft); }
+.bu-whero[data-w] .bu-blobs i:nth-child(3) { background: var(--soft2); }
+@keyframes bu-drift { to { transform: translate(6%, 8%) scale(1.12); } }
+
+.bu-hero, .bu-whero { position: relative; isolation: isolate; overflow: hidden; }
+.bu-hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(24px, 4vw, 64px); align-items: center; padding-block: clamp(36px, 6vw, 80px) clamp(48px, 6vw, 90px); }
+.bu-hero-copy { display: grid; gap: 16px; }
+.bu-hero-copy .z-lead { margin-top: 0; }
+.bu-hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 12px; }
+.bu-hero-call { font-size: 18px; padding-inline: 8px; }
+
+/* The film sits in a floating bubble */
+.bu-orb { position: relative; width: 100%; max-width: 560px; justify-self: center; aspect-ratio: 1; border-radius: 50%; overflow: hidden; border: 10px solid #fff; box-shadow: 0 40px 90px rgba(7, 122, 116, .18), inset 0 0 0 1px var(--line); animation: bu-float 7s ease-in-out infinite; }
+.bu-orb > div { width: 100%; height: 100%; }
+.bu-orb-world { border-radius: 42% 58% 55% 45% / 50% 45% 55% 50%; aspect-ratio: 1000 / 820; animation: bu-float 7s ease-in-out infinite, bu-morph 14s ease-in-out infinite alternate; }
+@keyframes bu-float { 50% { transform: translateY(-12px); } }
+@keyframes bu-morph { to { border-radius: 58% 42% 45% 55% / 45% 55% 45% 55%; } }
+@media (max-width: 900px) {
+  .bu-hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .bu-orb { max-width: 400px; }
+}
+
+.bu-soft { background: linear-gradient(180deg, color-mix(in srgb, var(--soft) 70%, var(--bg)), var(--bg)); }
+
+/* Header */
+.bu .z-head.is-solid { background: rgba(245, 251, 251, .86); }
+.bu .z-switch { box-shadow: 0 8px 24px rgba(11, 70, 80, .08); }
+
+/* Doors as big bubbles */
+.bu .z-door-in { background: linear-gradient(150deg, var(--soft), var(--soft2)); border-radius: 44px; min-height: 380px; box-shadow: 0 24px 60px rgba(11, 70, 80, .08); }
+.bu .z-door-in:hover { transform: translateY(-6px) scale(1.01); }
+.bu .z-door-art { width: 46%; max-width: 250px; inset-block-start: 10px; inset-inline-end: 10px; animation: bu-float 6s ease-in-out infinite; }
+.bu .z-door-t { font-weight: 800; }
+.bu .z-door-list i { background: rgba(255, 255, 255, .8); }
+.bu .z-door-go { margin-top: auto; padding: 12px 20px; border-radius: 999px; background: var(--accent); color: var(--on); width: fit-content; }
+
+/* Cards */
+.bu .z-card { border-radius: 30px; }
+.bu .z-card:hover { transform: translateY(-6px) scale(1.015); box-shadow: 0 26px 60px rgba(11, 70, 80, .12); }
+.bu .z-card-icon { border-radius: 50%; width: 54px; height: 54px; }
+.bu .z-card-t { font-weight: 700; font-size: 21px; }
+.bu .z-chip { background: var(--surface); box-shadow: inset 0 0 0 1.5px var(--soft), 0 6px 16px rgba(11, 70, 80, .06); }
+.bu .z-concern { background: linear-gradient(140deg, #fff, var(--soft)); }
+.bu .z-step-n, .bu .z-promise-icon, .bu .z-branch-pin { border-radius: 50%; }
+.bu .z-promise { box-shadow: var(--shadow); }
+.bu .z-stat { box-shadow: var(--shadow); border-radius: 999px; aspect-ratio: 1; align-content: center; }
+@media (max-width: 760px) { .bu .z-stat { aspect-ratio: auto; border-radius: 26px; } }
+.bu .z-review-in { border-radius: 32px 32px 32px 8px; background: #fff; box-shadow: var(--shadow); }
+[dir="rtl"] .bu .z-review-in { border-radius: 32px 32px 8px 32px; }
+.bu .z-doctor-photo { border-radius: 50% 50% 38px 38px; }
+.bu .z-bookband-in { border-radius: 48px; }
+.bu .z-phero { background: radial-gradient(70% 120% at 80% 0%, var(--soft), transparent 70%), radial-gradient(60% 100% at 10% 0%, var(--soft2), transparent 70%); }
+.bu .z-ruler-bar span { background: linear-gradient(0deg, var(--accent), #FFC89A); }
+.bu .z-foot { background: linear-gradient(180deg, #fff, var(--a-soft)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .bu-blobs i, .bu-orb, .bu .z-door-art { animation: none; }
+}

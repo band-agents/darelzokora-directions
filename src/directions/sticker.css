@@ -1,0 +1,148 @@
+/* ═══ C · STICKER ══════════════════════════════════════════
+   Pastel stickers with a thick ink outline and a hard shadow, tilted until
+   you touch them. Marhey + Rubik. Buttons press down like real ones. */
+
+.st {
+  --display: "Marhey", "Rubik", system-ui, sans-serif;
+  --text: "Rubik", system-ui, sans-serif;
+  --bg: #F8F5FF;
+  --surface: #FFFFFF;
+  --ink: #1B1530;
+  --muted: #564F6D;
+  --line: rgba(27, 21, 48, .14);
+  --line-strong: #1B1530;
+  --radius: 22px;
+  --radius-lg: 30px;
+  --shadow: 5px 5px 0 #1B1530;
+  --outline: 2.5px solid #1B1530;
+  /* Fills are pastel, so text on them stays ink: --on is the ink colour. */
+  --n-accent: #FFE45C; --n-ink: #6B4A00; --n-soft: #FFF6C2; --n-soft2: #E9E1FF; --n-on: #1B1530;
+  --a-accent: #7FE0C8; --a-ink: #0B6F68; --a-soft: #CFF5EA; --a-soft2: #CDEBFF; --a-on: #1B1530;
+  --k-accent: #FFB3C7; --k-ink: #A62C58; --k-soft: #FFE0EA; --k-soft2: #FFF3B0; --k-on: #1B1530;
+}
+.st .z-h1 { font-weight: 700; line-height: 1.25; }
+.st .z-h2 { font-weight: 700; }
+.st .z-h1 em, .st .z-h2 em {
+  display: inline-block; padding: 0 .22em; border-radius: 16px; background: var(--accent); color: var(--ink);
+  border: 2.5px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); transform: rotate(-2deg); margin-block: .08em;
+}
+.st .z-h1 em[data-w="adults"] { transform: rotate(2deg); }
+.st .z-kicker { color: var(--ink); }
+.st-tag { display: inline-flex; align-items: center; gap: 8px; width: fit-content; padding: 6px 14px; border-radius: 999px; background: var(--n-accent); border: var(--outline); transform: rotate(-1.5deg); }
+.st [data-w] .st-tag, .st-whero .st-tag { background: var(--accent); }
+
+/* Buttons that press */
+.st .z-btn { border: var(--outline); box-shadow: 4px 4px 0 var(--ink); }
+.st .z-btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+.st .z-btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.st .z-btn-primary { background: var(--accent); color: var(--on); }
+.st .z-btn-ghost { background: #fff; box-shadow: 4px 4px 0 var(--ink); }
+.st .z-btn-urgent { background: #FF8A7A; color: var(--ink); }
+.st .z-link { color: var(--ink); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* Header */
+.st .z-head { background: var(--bg); box-shadow: 0 2.5px 0 var(--ink); }
+.st .z-switch { border: var(--outline); box-shadow: 3px 3px 0 var(--ink); background: #fff; }
+.st .z-switch-pill { border: 2px solid var(--ink); }
+.st .z-switch-opt[aria-current="page"] { color: var(--ink); }
+.st .z-lang { border: var(--outline); box-shadow: 3px 3px 0 var(--ink); background: #fff; }
+.st .z-call { color: var(--ink); }
+
+/* Hero */
+.st-hero { position: relative; overflow: hidden; isolation: isolate; background:
+  radial-gradient(circle at 10% 20%, #FFE0EA 0 120px, transparent 121px),
+  radial-gradient(circle at 92% 80%, #CFF5EA 0 160px, transparent 161px),
+  var(--bg); }
+.st-whero { background: radial-gradient(circle at 88% 18%, var(--soft2) 0 140px, transparent 141px), radial-gradient(circle at 6% 86%, var(--soft) 0 170px, transparent 171px), var(--bg); }
+.st-hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(28px, 5vw, 72px); align-items: center; padding-block: clamp(36px, 6vw, 84px); }
+.st-hero-copy { display: grid; gap: 18px; }
+.st-hero-copy .z-lead { margin-top: 0; color: var(--ink); }
+.st-hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+.st-film { position: relative; justify-self: center; width: 100%; max-width: 520px; border: 3px solid var(--ink); border-radius: 34px; box-shadow: 10px 10px 0 var(--ink); overflow: visible; transform: rotate(2.5deg); transition: transform .5s cubic-bezier(.3, 1.6, .5, 1); background: #fff; }
+.st-film:hover { transform: rotate(0deg) scale(1.02); }
+.st-film > div:not(.st-tape) { border-radius: 30px; overflow: hidden; }
+.st-film-world { transform: rotate(-2deg); }
+.st-tape { position: absolute; top: -18px; left: 50%; width: 130px; height: 36px; transform: translateX(-50%) rotate(-4deg); background: rgba(255, 228, 92, .85); border: 2px solid var(--ink); z-index: 2; }
+@media (max-width: 900px) { .st-hero-grid { grid-template-columns: minmax(0, 1fr); } .st-film { max-width: 400px; } }
+
+/* Ticker */
+.st-ticker { overflow: hidden; background: var(--ink); color: #fff; padding-block: 14px; border-block: 3px solid var(--ink); }
+.st-ticker-track { display: flex; width: max-content; animation: st-tick 50s linear infinite; }
+[dir="rtl"] .st-ticker-track { animation-name: st-tick-rtl; }
+.st-ticker-track > span { display: flex; gap: 12px; padding-inline-end: 12px; }
+.st-ticker b { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: var(--accent); color: var(--ink); font-family: var(--display); font-size: 17px; white-space: nowrap; border: 2px solid #fff; }
+@keyframes st-tick { to { transform: translateX(-50%); } }
+@keyframes st-tick-rtl { to { transform: translateX(50%); } }
+
+.st-dots { background-image: radial-gradient(rgba(27, 21, 48, .12) 1.5px, transparent 1.6px); background-size: 22px 22px; }
+
+/* Stickers everywhere */
+.st .z-door-in, .st .z-card, .st .z-concern, .st .z-ruler-panel, .st .z-step, .st .z-promise, .st .z-faq-item,
+.st .z-review-in, .st .z-branch, .st .z-article, .st .z-bookband-in, .st .z-book, .st .z-svc-col, .st .z-abroad,
+.st .z-emergency, .st .z-stat, .st .z-menu-world, .st .z-book-world {
+  border: var(--outline); box-shadow: var(--shadow);
+}
+.st .z-door-in { border-width: 3px; box-shadow: 8px 8px 0 var(--ink); min-height: 380px; background: var(--soft); transition: transform .45s cubic-bezier(.3, 1.6, .5, 1); }
+.st .z-door:nth-child(1) .z-door-in { transform: rotate(-1.8deg); }
+.st .z-door:nth-child(2) .z-door-in { transform: rotate(1.8deg); background: var(--soft2); }
+.st .z-door-in:hover { transform: rotate(0) scale(1.02); }
+.st .z-door-t { font-weight: 700; }
+.st .z-door-list i { border: 2px solid var(--ink); background: #fff; }
+.st .z-door-go { margin-top: auto; padding: 10px 18px; border-radius: 999px; background: var(--accent); border: var(--outline); box-shadow: 3px 3px 0 var(--ink); color: var(--ink); width: fit-content; }
+.st .z-door-art { width: 42%; }
+
+.st .z-card { transition: transform .35s cubic-bezier(.3, 1.6, .5, 1), box-shadow .2s; }
+.st .z-grid > div:nth-child(odd) .z-card { transform: rotate(-1deg); }
+.st .z-grid > div:nth-child(even) .z-card { transform: rotate(1deg); }
+.st .z-grid > div .z-card:hover { transform: rotate(0) translate(-2px, -3px); box-shadow: 8px 8px 0 var(--ink); }
+.st .z-card-icon { background: var(--accent); color: var(--ink); border: 2px solid var(--ink); border-radius: 50%; }
+.st .z-card-go, .st .z-review-who, .st .z-article-w, .st .z-door-aud { color: var(--ink); }
+.st .z-card.is-urgent { background: #FFE6E2; }
+.st .z-chip { border: 2px solid var(--ink); background: #fff; box-shadow: 3px 3px 0 var(--ink); }
+.st .z-chip:nth-child(odd) { transform: rotate(-1.5deg); }
+.st .z-chip:hover { background: var(--accent); color: var(--ink); transform: rotate(0) translateY(-2px); }
+.st .z-chips li:nth-child(3n) .z-chip { transform: rotate(1.5deg); }
+.st .z-chip.is-urgent { background: #FFD3CC; color: var(--ink); }
+
+.st .z-stats { gap: 22px; }
+.st .z-stat { border-radius: 50%; aspect-ratio: 1; align-content: center; background: var(--n-soft); }
+.st .z-stat:nth-child(2) { background: var(--a-soft); transform: rotate(-4deg); }
+.st .z-stat:nth-child(3) { background: var(--k-soft); transform: rotate(3deg); }
+.st .z-stat:nth-child(4) { background: var(--a-soft2); }
+.st .z-stat-v { color: var(--ink); font-weight: 700; }
+@media (max-width: 760px) { .st .z-stat { aspect-ratio: auto; border-radius: 22px; transform: none !important; } }
+
+.st .z-step-n, .st .z-promise-icon, .st .z-branch-pin { border: 2px solid var(--ink); background: var(--accent); color: var(--ink); }
+.st .z-journey { position: relative; }
+.st .z-step:nth-child(even) { transform: translateY(18px); }
+.st .z-review-in { background: #fff; border-radius: 26px 26px 26px 4px; position: relative; }
+[dir="rtl"] .st .z-review-in { border-radius: 26px 26px 4px 26px; }
+.st .z-review:nth-child(2) .z-review-in { background: var(--k-soft2); transform: rotate(1deg); }
+.st .z-review:nth-child(odd) .z-review-in { transform: rotate(-.8deg); }
+.st .z-review-q { color: var(--ink); }
+.st .z-doctor-photo { border: 3px solid var(--ink); box-shadow: 10px 10px 0 var(--ink); transform: rotate(-2deg); background: var(--a-soft); padding: 14px 14px 60px; border-radius: 8px; }
+.st .z-doctor-photo img { width: calc(100% - 28px); bottom: 60px; }
+.st .z-record li { border: 2px solid var(--ink); background: #fff; }
+.st .z-ruler-tabs button.is-on { background: #fff; border: var(--outline); box-shadow: 4px 4px 0 var(--ink); }
+.st .z-ruler-bar { border: 2px solid var(--ink); background: #fff; }
+.st .z-ruler-bar span { background: repeating-linear-gradient(0deg, var(--accent) 0 12px, var(--k-soft2) 12px 24px); opacity: .6; }
+.st .z-ruler-list a { border: 2px solid var(--ink); }
+.st .z-emergency { background: #FFE6E2; }
+.st .z-emergency-icon { border: 2px solid var(--ink); }
+.st .z-bookband-in { background: var(--soft2); border-width: 3px; box-shadow: 8px 8px 0 var(--ink); }
+.st .z-phero { background: var(--soft); border-bottom: 3px solid var(--ink); }
+.st .z-svc-badge { border: 3px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); background: var(--accent); color: var(--ink); transform: rotate(-4deg); }
+.st .z-svc-note { border: 2px solid var(--ink); }
+.st .z-tabs { border: var(--outline); box-shadow: 3px 3px 0 var(--ink); }
+.st .z-tabs button.is-on { color: var(--ink); }
+.st .z-book-world.is-on, .st .z-book-opt.is-on { box-shadow: 4px 4px 0 var(--ink); outline: 2.5px solid var(--ink); }
+.st .z-book-days .is-on, .st .z-book-slots .is-on, .st .z-book-ages .is-on { color: var(--ink) !important; outline: 2px solid var(--ink); }
+.st .z-book-steps .is-on button > span { color: var(--ink); border: 2px solid var(--ink); }
+.st .z-book-done-i, .st .z-book-steps .is-done button > span { border: 2px solid var(--ink); color: var(--ink); }
+.st .z-foot { background: var(--n-soft); border-top: 3px solid var(--ink); box-shadow: none; }
+.st .z-foot-h { color: var(--ink) !important; }
+.st .z-tabbar { border-top: 2.5px solid var(--ink); }
+.st .z-tab-book { border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); color: var(--ink) !important; }
+.st .z-wipe { background: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) { .st-ticker-track { animation: none; } }

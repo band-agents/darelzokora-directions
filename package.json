@@ -1,0 +1,31 @@
+{
+  "name": "darelzokora-directions",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Dar El Zokora: three bilingual website directions (Arabic first) built around two worlds, adults and kids.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5197",
+    "build": "tsc --noEmit && vite build",
+    "build:single": "tsc --noEmit && vite build --mode single",
+    "typecheck": "tsc --noEmit",
+    "deploy:pages": "node scripts/deploy-pages.mjs"
+  },
+  "dependencies": {
+    "@remotion/player": "4.0.519",
+    "@remotion/transitions": "4.0.519",
+    "framer-motion": "^12.23.24",
+    "lucide-react": "^0.469.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.519"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.2",
+    "vite-plugin-singlefile": "^2.3.0"
+  }
+}
