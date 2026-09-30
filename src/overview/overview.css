@@ -5,7 +5,7 @@
 .ov {
   --ink: #0F1A24; --muted: #5A6772; --line: #E3E8EC; --line-strong: #CBD3D9;
   --teal: #0A7F7A; --paper: #FBFCFC; --tint: #F1F6F6;
-  --adults: #0A7F7A; --adults-soft: #DDF3EF; --kids: #D65A3F; --kids-soft: #FFE9DC;
+  --adults: #0B6E6A; --adults-soft: #E3F1F0; --kids: #2F6DA8; --kids-soft: #E6EFF8;
   --accent: var(--teal);
   --display: "Alexandria", sans-serif;
   min-height: 100vh; background: var(--paper); color: var(--ink);
@@ -58,7 +58,7 @@
 .ov-map-worlds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; width: 100%; position: relative; }
 .ov-map-world { display: grid; gap: 8px; padding: 24px; border-radius: 18px; }
 .ov-map-world[data-ow="adults"] { background: var(--adults-soft); color: #064F4B; }
-.ov-map-world[data-ow="kids"] { background: var(--kids-soft); color: #8A2E1B; }
+.ov-map-world[data-ow="kids"] { background: var(--kids-soft); color: #1F4E7A; }
 .ov-map-world b { display: inline-flex; align-items: center; gap: 8px; font-family: var(--display); font-size: 22px; }
 .ov-map-world span { font-size: 15px; }
 .ov-map-world i { font-style: normal; font-size: 14px; opacity: .8; }
@@ -76,9 +76,9 @@
 .ov-dir-rev .ov-film { order: 2; }
 .ov-film { position: relative; aspect-ratio: 1; border-radius: 24px; overflow: hidden; display: grid; place-items: center; border: 1px solid var(--line); }
 .ov-film-in { width: 82%; aspect-ratio: 1; }
-.ov-film-bubble { border-radius: 50%; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(10, 127, 122, .45); }
-.ov-film-split { border-radius: 50%; overflow: hidden; border: 6px solid #fff; box-shadow: 0 20px 50px -24px rgba(20, 24, 31, .35); }
-.ov-film-sticker { border-radius: 26px; overflow: hidden; border: 3px solid #1B1530; box-shadow: 10px 10px 0 #1B1530; transform: rotate(-2deg); width: 76%; }
+.ov-film-clarity { border-radius: 18px; overflow: hidden; box-shadow: 0 0 0 1px #E4E9EC, 0 30px 60px -30px rgba(15, 27, 36, .3); }
+.ov-film-prestige { border-radius: 50%; overflow: hidden; border: 6px solid #FAF8F4; box-shadow: 0 0 0 1px #A58454, 0 0 0 7px #FAF8F4, 0 0 0 8px #D3C9B7; width: 74%; }
+.ov-film-precision { border-radius: 28px; overflow: hidden; border: 8px solid #fff; box-shadow: 0 0 0 1px #E3E7EC, 0 40px 70px -40px rgba(17, 24, 39, .35); width: 76%; }
 .ov-dir-letter { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--muted); margin-bottom: 8px; }
 .ov-dir-letter b { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--ink); color: #fff; font-family: var(--display); }
 .ov-dir-copy > p { color: var(--muted); }

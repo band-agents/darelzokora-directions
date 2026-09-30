@@ -16,16 +16,20 @@ import {
   SectionHead, ServiceCard, Stats,
 } from "./sections";
 import { ICONS, useSite } from "./site";
+import { bandsFor } from "./heroProps";
 
 export function WorldArtPlayer({ world }: { world: World }) {
   const { skin } = useSite();
+  const { t } = useLang();
   const a = skin.worldArt;
   return (
     <LivePlayer
       component={WorldArt}
-      inputProps={{ world, bg: a[world], accent: world === "adults" ? a.accentA : a.accentK, outline: a.outline }}
+      inputProps={{ world, bg: a[world], accent: world === "adults" ? a.accentA : a.accentK, ink: skin.ink, font: skin.displayFont, bands: bandsFor(t) }}
       width={WORLD_ART.width} height={WORLD_ART.height} frames={WORLD_ART.frames} still={0}
-      label={world === "adults" ? "Bubbles rising around the Dar El Zokora mark" : "Balloons, stars and clouds"}
+      label={t(world === "adults"
+        ? { ar: "حلقات دقيقة تدور حول شعار دار الذكورة", en: "Precision rings turning around the Dar El Zokora mark" }
+        : { ar: "منحنى نمو الطفل من الولادة حتى 18 سنة", en: "A boy's growth curve from birth to 18" })}
     />
   );
 }

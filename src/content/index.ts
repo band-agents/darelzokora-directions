@@ -63,7 +63,7 @@ export const WORLDS: Record<World, {
     door: { ar: "أنا أبحث عن علاج لي", en: "I'm looking for care for myself" },
   },
   kids: {
-    label: { ar: "الأطفال", en: "Kids" },
+    label: { ar: "الأطفال", en: "Children" },
     audience: { ar: "لابنك", en: "For your son" },
     tagline: { ar: "من الولادة حتى البلوغ", en: "From birth to puberty" },
     title: { ar: "اطمئن على ابنك من الصغر", en: "Peace of mind for your son, from day one" },
@@ -287,7 +287,7 @@ export const SERVICES: Service[] = [
     signs: [
       { ar: "فتحة البول أسفل العضو", en: "The opening on the underside" },
       { ar: "جلد زائد من أعلى فقط", en: "Foreskin gathered on top only" },
-      { ar: "انحناء العضو", en: "A bend in the penis" },
+      { ar: "انحناء العضو", en: "Penile curvature" },
     ],
     care: [
       { ar: "لا ختان قبل التقييم: قد نحتاج الجلد في الإصلاح", en: "No circumcision before assessment: the foreskin may be needed for the repair" },
@@ -419,24 +419,24 @@ export const servicesOf = (w: World) => SERVICES.filter((s) => s.world === w);
 /** "What brings you in?": plain-language concerns that route to a service. Ours. */
 export const CONCERNS: Record<World, { label: L; service: string }[]> = {
   adults: [
-    { label: { ar: "الانتصاب ضعيف", en: "Weak erections" }, service: "ed" },
-    { label: { ar: "الأدوية لم تعد تنفع", en: "Tablets stopped working" }, service: "implants" },
-    { label: { ar: "سرعة القذف", en: "Coming too fast" }, service: "pe" },
-    { label: { ar: "تأخر الإنجاب", en: "Trying for a baby" }, service: "infertility" },
-    { label: { ar: "ألم أو عروق في الخصية", en: "Testicle ache or veins" }, service: "varicocele" },
-    { label: { ar: "انحناء في العضو", en: "A bend in the penis" }, service: "curvature" },
-    { label: { ar: "مشاكل في التبول", en: "Trouble passing urine" }, service: "prostate" },
-    { label: { ar: "إرهاق وقلة رغبة", en: "Tired, low desire" }, service: "hormones" },
+    { label: { ar: "الانتصاب ضعيف", en: "Erection difficulties" }, service: "ed" },
+    { label: { ar: "الأدوية لم تعد تنفع", en: "Medication no longer works" }, service: "implants" },
+    { label: { ar: "سرعة القذف", en: "Premature ejaculation" }, service: "pe" },
+    { label: { ar: "تأخر الإنجاب", en: "Difficulty conceiving" }, service: "infertility" },
+    { label: { ar: "ألم أو عروق في الخصية", en: "Testicular pain or veins" }, service: "varicocele" },
+    { label: { ar: "انحناء في العضو", en: "Penile curvature" }, service: "curvature" },
+    { label: { ar: "مشاكل في التبول", en: "Urinary symptoms" }, service: "prostate" },
+    { label: { ar: "إرهاق وقلة رغبة", en: "Fatigue or low desire" }, service: "hormones" },
   ],
   kids: [
-    { label: { ar: "الخصية ليست في مكانها", en: "A testicle isn't in place" }, service: "undescended" },
+    { label: { ar: "الخصية ليست في مكانها", en: "A testicle is not in place" }, service: "undescended" },
     { label: { ar: "فتحة البول في مكان غير معتاد", en: "The urine opening looks unusual" }, service: "hypospadias" },
-    { label: { ar: "العضو يبدو صغيراً أو مختفياً", en: "It looks small or hidden" }, service: "buried" },
-    { label: { ar: "أريد ختان ابني", en: "I want him circumcised" }, service: "circumcision" },
-    { label: { ar: "يبلّل فراشه ليلاً", en: "He wets the bed" }, service: "bedwetting" },
-    { label: { ar: "ألم مفاجئ في الخصية", en: "Sudden testicle pain" }, service: "torsion" },
-    { label: { ar: "انتفاخ أو عروق في الخصية", en: "Swelling or veins" }, service: "teenvaricocele" },
-    { label: { ar: "البلوغ تأخر", en: "Puberty seems late" }, service: "puberty" },
+    { label: { ar: "العضو يبدو صغيراً أو مختفياً", en: "The penis looks small or hidden" }, service: "buried" },
+    { label: { ar: "أريد ختان ابني", en: "Circumcision" }, service: "circumcision" },
+    { label: { ar: "يبلّل فراشه ليلاً", en: "Bedwetting" }, service: "bedwetting" },
+    { label: { ar: "ألم مفاجئ في الخصية", en: "Sudden testicular pain" }, service: "torsion" },
+    { label: { ar: "انتفاخ أو عروق في الخصية", en: "Swelling or visible veins" }, service: "teenvaricocele" },
+    { label: { ar: "البلوغ تأخر", en: "Delayed puberty" }, service: "puberty" },
   ],
 };
 
@@ -567,8 +567,8 @@ export const UI = {
   langSwitch: { ar: "English", en: "العربية" },
   langLabel: { ar: "Switch to English", en: "التحويل إلى العربية" },
   chooseWorld: { ar: "لمن تبحث عن رعاية؟", en: "Who is the care for?" },
-  concern: { ar: "ما الذي يقلقك؟", en: "What's on your mind?" },
-  concernHint: { ar: "اختر ما يشبه حالتك، ونأخذك للصفحة المناسبة.", en: "Pick what sounds closest, and we'll take you to the right page." },
+  concern: { ar: "ما سبب زيارتك؟", en: "What brings you in?" },
+  concernHint: { ar: "اختر الأقرب إلى حالتك لتصل إلى الصفحة المناسبة.", en: "Choose the closest match and we'll take you to the right page." },
   services: { ar: "خدماتنا", en: "Our services" },
   allServices: { ar: "كل الخدمات", en: "All services" },
   seeAll: { ar: "عرض الكل", en: "See all" },
@@ -608,7 +608,7 @@ export const HOME = {
   accentWorlds: ["kids", "adults"],
   lead: {
     ar: "مركز متخصص منذ 2003 بقسمين: قسم للكبار لصحة الرجل الجنسية والإنجابية، وقسم للأطفال من الولادة حتى البلوغ. أربعة فروع، وخط ساخن واحد.",
-    en: "A specialist centre since 2003, in two sections: one for adults, for men's sexual and reproductive health, and one for kids, from birth to puberty. Four branches, one hotline.",
+    en: "A specialist centre since 2003, in two sections: one for adults, for men's sexual and reproductive health, and one for children, from birth to puberty. Four branches, one hotline.",
   } as L,
   worldsTitle: { ar: "اختر القسم المناسب", en: "Choose your section" } as L,
   worldsLead: { ar: "لكل قسم خدماته ورحلته، حتى تصل لما تحتاجه بأقل خطوات.", en: "Each section has its own services and journey, so you reach what you need in the fewest steps." } as L,

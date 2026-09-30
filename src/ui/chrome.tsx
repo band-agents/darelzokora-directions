@@ -115,7 +115,7 @@ export function MobileBar() {
   );
 }
 
-/** A circle of the new world's colour opening from the top when you cross worlds. Decorative only. */
+/** A thin bar in the new world's colour runs across the top when you cross worlds. Decorative only. */
 export function WorldWipe() {
   const { world } = useSite();
   const prev = useRef<World | undefined>(world);
@@ -131,9 +131,9 @@ export function WorldWipe() {
       data-w={key.w}
       className="z-wipe"
       aria-hidden
-      initial={{ clipPath: "circle(0% at 50% 0%)", opacity: 1 }}
-      animate={{ clipPath: ["circle(0% at 50% 0%)", "circle(150% at 50% 0%)", "circle(150% at 50% 0%)"], opacity: [1, 1, 0] }}
-      transition={{ duration: 0.9, times: [0, 0.55, 1], ease: "easeInOut" }}
+      initial={{ scaleX: 0, opacity: 1 }}
+      animate={{ scaleX: [0, 1, 1], opacity: [1, 1, 0] }}
+      transition={{ duration: 0.9, times: [0, 0.6, 1], ease: "easeInOut" }}
     />
   );
 }

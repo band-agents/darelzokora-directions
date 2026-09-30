@@ -17,7 +17,7 @@ Live: <https://band-agents.github.io/darelzokora-directions/> (public repo
 
 ## Routes (hash, so it works on Pages and as a single file)
 
-`#` overview board · `#bubble` `#split` `#sticker` home · `/adults` `/kids` world hubs ·
+`#` overview board · `#clarity` `#prestige` `#precision` home · `/adults` `/kids` world hubs ·
 `/s/<serviceId>` service · `/book[/adults|/kids|/s/<id>]` booking · `/doctor` `/branches` `/articles`.
 The switcher at the bottom keeps the page when changing direction.
 
@@ -29,12 +29,18 @@ The switcher at the bottom keeps the page when changing direction.
 - `src/ui/`: shared markup (`z-*` classes), used by all three directions.
   `Shell.tsx` (page switch), `chrome.tsx` (header with the Adults/Kids switch, phone tab bar,
   world wipe, footer), `sections.tsx`, `Booking.tsx` (world-first wizard), `pages.tsx`, `base.css`.
-- `src/directions/{Bubble,Split,Sticker}.tsx` + `.css`: each direction's home, world hub and skin
-  (`.bu`, `.sp`, `.st` on the root). Each exports its `SKIN` (colours passed into Remotion).
+- `src/directions/{Clarity,Prestige,Precision}.tsx` + `.css`: each direction's home, world hub and skin
+  (`.cl`, `.pr`, `.pc` on the root). Each exports its `SKIN` (colours passed into Remotion).
+  A Clarity = clinical white + logo teal / calm blue, IBM Plex Sans Arabic. B Prestige = ivory, navy / sage,
+  brass hairlines, serif (Source Serif 4 + Noto Naskh Arabic), split home + sticky rail. C Precision = cool
+  grey, petrol / sand, Alexandria + Readex Pro, a find-care panel and a two-tab service explorer.
 - `src/remotion/heroes.tsx`: the three hero films and the world art. `src/overview/`: the board.
 
 ## Rules that bit before
 
+- **Professional, not playful.** Round one (Bubble/Split/Sticker: balloons, stickers, rounded display
+  faces) was rejected on 2026-09-30 as "kindergarten". No cartoons, bounces or wiggles; the films use
+  rings, a growth curve, the doctor and slow fades/wipes/slides. English calls the kids section "Children".
 - **World colour is data, not classes.** `data-world` on the root, `data-w` on any element, map
   `--a-*`/`--k-*` to `--accent`, `--accent-ink`, `--soft`, `--soft2`, `--on` (base.css).
 - **Logical properties only** (inline/block, start/end); one stylesheet serves both directions.

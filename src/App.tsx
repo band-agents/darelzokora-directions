@@ -8,9 +8,9 @@ import { useEffect, useState } from "react";
 import { LangProvider, useLang } from "@/lib/i18n";
 import { DIRECTIONS, pageHash, readHash, type View } from "@/lib/routes";
 import { Overview } from "@/overview/Overview";
-import { Bubble } from "@/directions/Bubble";
-import { Split } from "@/directions/Split";
-import { Sticker } from "@/directions/Sticker";
+import { Clarity } from "@/directions/Clarity";
+import { Prestige } from "@/directions/Prestige";
+import { Precision } from "@/directions/Precision";
 
 export function App() {
   return <LangProvider><Router /></LangProvider>;
@@ -35,9 +35,9 @@ function Router() {
   const { dir, page } = view;
   return (
     <>
-      {dir === "bubble" && <Bubble page={page} />}
-      {dir === "split" && <Split page={page} />}
-      {dir === "sticker" && <Sticker page={page} />}
+      {dir === "clarity" && <Clarity page={page} />}
+      {dir === "prestige" && <Prestige page={page} />}
+      {dir === "precision" && <Precision page={page} />}
       <nav className="sw" aria-label="Directions">
         <a href="#">☰<span className="sw-name"> {t({ ar: "نظرة عامة", en: "Overview" })}</span></a>
         {DIRECTIONS.map((d) => (

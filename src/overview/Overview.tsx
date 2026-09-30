@@ -13,10 +13,10 @@ import { BRAND, type L, type World } from "@/content";
 import { useLang } from "@/lib/i18n";
 import { LivePlayer, Reveal, RevealGroup, RevealItem } from "@/lib/motion";
 import type { DirId } from "@/lib/routes";
-import { BubbleHero, HERO, HERO_FRAMES, STICKER_FRAMES, SplitHero, StickerHero, type HeroProps } from "@/remotion/heroes";
-import { SKIN as BUBBLE } from "@/directions/Bubble";
-import { SKIN as SPLIT } from "@/directions/Split";
-import { SKIN as STICKER } from "@/directions/Sticker";
+import { ClarityHero, HERO, HERO_FRAMES, PrecisionHero, PrestigeHero, type HeroProps } from "@/remotion/heroes";
+import { SKIN as CLARITY } from "@/directions/Clarity";
+import { SKIN as PRESTIGE } from "@/directions/Prestige";
+import { SKIN as PRECISION } from "@/directions/Precision";
 import { LangToggle } from "@/ui/chrome";
 import { heroPropsFor } from "@/ui/heroProps";
 import { WorldGlyph, type Skin } from "@/ui/site";
@@ -32,55 +32,55 @@ interface Direction {
 
 const DIRS: Direction[] = [
   {
-    id: "bubble", letter: "A", name: { ar: "فقاعة", en: "Bubble" },
-    idea: { ar: "ناعم، مستدير، خفيف كالهواء.", en: "Soft, round, weightless." },
+    id: "clarity", letter: "A", name: { ar: "وضوح", en: "Clarity" },
+    idea: { ar: "إكلينيكي، هادئ، دقيق.", en: "Clinical, calm, exact." },
     summary: {
-      ar: "ألوان باستيل تسبح في الخلفية وكل شيء مستدير. النعناعي والأزرق المائي للكبار، والخوخي والزبدي للأطفال، والتركوازي من الشعار يجمع القسمين.",
-      en: "Pastel washes drift behind everything and every edge is round. Mint and aqua for adults, peach and butter for kids; the logo's teal holds both together.",
+      ar: "بلغة المستشفيات الكبرى: مساحات بيضاء، وتركوازي الشعار هو اللون القوي الوحيد، وخطوط رفيعة بدل الزخرفة، وخط واحد للعربية والإنجليزية. أول قرار في الصفحة هو القسم: بطاقتان تحت العنوان مباشرة.",
+      en: "The register of a leading hospital: white space, the logo's teal as the only strong colour, hairlines instead of decoration, one typeface for Arabic and English. The first decision on the page is the section: two option cards straight under the headline.",
     },
     motion: {
-      ar: "الفيلم يعيش داخل فقاعة عائمة وينتقل من قسم إلى قسم بانتقال «القزحية» الدائري من Remotion. فقاعات تصعد، وعناوين تطلع كلمة كلمة.",
-      en: "The film lives in a floating bubble and moves from section to section through Remotion's circular iris. Bubbles rise; headlines lift word by word.",
+      ar: "انتقالات «تلاشي» هادئة من Remotion بين ثلاثة مشاهد: حلقات دقيقة تدور حول الشعار للكبار، ومنحنى نمو من الولادة حتى 18 سنة للأطفال، ثم د. أسامة.",
+      en: "Calm Remotion cross-fades between three scenes: precision rings turning around the logo for adults, a growth curve from birth to 18 for children, then Dr. Osama.",
     },
-    chooseIf: { ar: "تريدون الأكثر دفئاً وطمأنة، وخصوصاً للأمهات.", en: "you want the warmest, most reassuring of the three, especially for mothers." },
-    skin: BUBBLE, film: BubbleHero, frames: HERO_FRAMES,
-    fonts: ["Baloo Bhaijaan 2", "Readex Pro"],
-    swatches: { adults: ["#077A74", "#DDF5F1"], kids: ["#D65A3F", "#FFE9DC"] },
-    stage: "radial-gradient(70% 70% at 30% 30%, #DDF5F1, transparent 70%), radial-gradient(70% 70% at 75% 75%, #FFE9DC, transparent 70%), #F6FBFB",
+    chooseIf: { ar: "تريدون ثقة المستشفى ووضوحه، والأسهل قراءة للجميع.", en: "you want a hospital's trust and clarity, and the easiest read for everyone." },
+    skin: CLARITY, film: ClarityHero, frames: HERO_FRAMES,
+    fonts: ["IBM Plex Sans Arabic", "IBM Plex Sans Arabic"],
+    swatches: { adults: ["#0B6E6A", "#E8F3F2"], kids: ["#2F6DA8", "#EAF2FA"] },
+    stage: "linear-gradient(180deg, #F6F9FA, #FFFFFF)",
   },
   {
-    id: "split", letter: "B", name: { ar: "نصفان", en: "Split" },
-    idea: { ar: "صفحة واحدة، نصفان واضحان.", en: "One page, two clear halves." },
+    id: "prestige", letter: "B", name: { ar: "وقار", en: "Prestige" },
+    idea: { ar: "عيادة خاصة: هادئة وواثقة.", en: "A private clinic: quiet and assured." },
     summary: {
-      ar: "الرئيسية مقسومة حرفياً: الكبار في جهة والأطفال في الجهة الأخرى، والنصف الذي تقترب منه يكبر. تحريري ودقيق، خطوط بدل الظلال. أخضر مريمي للكبار، وبنفسجي فاتح وزبدي للأطفال.",
-      en: "The home page is literally split: adults on one side, kids on the other, and the half you lean into grows. Editorial and exact, rules instead of shadows. Sage and teal for adults, periwinkle and butter for kids.",
+      ar: "ورق عاجي، وحبر كحلي، وخطوط نحاسية رفيعة، وعناوين بخط نسخ أنيق. الرئيسية مقسومة نصفين: الكبار في جهة والأطفال في الأخرى، وداخل كل قسم فهرس جانبي ثابت. كحلي للكبار، وأخضر مريمي للأطفال.",
+      en: "Ivory paper, navy ink, brass hairlines and serif headings. The home page is split in two, adults on one side and children on the other, and inside each section a sticky index. Navy for adults, sage for children.",
     },
     motion: {
-      ar: "الفيلم ميدالية على خط المنتصف، يمسح من نصف إلى نصف ثم يدور كعقرب الساعة (انتقالات wipe و clockWipe). داخل كل قسم فهرس جانبي ثابت يأخذك لأي جزء.",
-      en: "The film is a medallion on the seam that wipes from half to half, then sweeps like a clock hand (wipe and clockWipe). Inside each section a sticky index takes you anywhere on the page.",
+      ar: "الفيلم ختم دائري على خط المنتصف، ينتقل بين المشاهد بمسح أفقي كقلب صفحة (wipe من Remotion).",
+      en: "The film is a round seal on the seam, moving between scenes with a horizontal wipe, like turning a page (Remotion wipe).",
     },
-    chooseIf: { ar: "تريدون الأوضح والأكثر «طبية»، والأسهل لمن يعرف ما يريد.", en: "you want the clearest and most clinical, and the fastest for people who know what they want." },
-    skin: SPLIT, film: SplitHero, frames: HERO_FRAMES,
-    fonts: ["Alexandria", "IBM Plex Sans Arabic"],
-    swatches: { adults: ["#0E7C72", "#E3F3EF"], kids: ["#4757D6", "#E7EBFF"] },
-    stage: "linear-gradient(90deg, #E3F3EF 50%, #E7EBFF 50%)",
+    chooseIf: { ar: "تريدون إحساس العيادة الخاصة الراقية، والأنسب للمرضى القادمين من الخليج.", en: "you want the feel of an exclusive private clinic, best suited to patients travelling from the Gulf." },
+    skin: PRESTIGE, film: PrestigeHero, frames: HERO_FRAMES,
+    fonts: ["Noto Naskh Arabic", "Noto Sans Arabic"],
+    swatches: { adults: ["#1C3152", "#ECEFF4"], kids: ["#3F6B5A", "#E7EEEA"] },
+    stage: "#FAF8F4",
   },
   {
-    id: "sticker", letter: "C", name: { ar: "ملصق", en: "Sticker" },
-    idea: { ar: "مرح، جريء، كأنه تطبيق.", en: "Playful, bold, app-like." },
+    id: "precision", letter: "C", name: { ar: "دقة", en: "Precision" },
+    idea: { ar: "علامة حديثة لصحة الرجل.", en: "A modern men's-health brand." },
     summary: {
-      ar: "كل شيء ملصق: ألوان باستيل، حد حبر سميك، ظل صلب، وميل خفيف يستقيم عندما تلمسه. نعناعي وسماوي للكبار، وردي علكة وليموني للأطفال.",
-      en: "Everything is a sticker: pastel fills, a thick ink outline, a hard shadow and a slight tilt that straightens when you touch it. Mint and sky for adults, bubblegum and lemon for kids.",
+      ar: "أرضية رمادية باردة وبطاقات بيضاء، وأزرق بترولي للكبار ولون رملي دافئ للأطفال. يعمل كتطبيق صحي جيد: الواجهة تسأل «لمن؟» و«ما سبب الزيارة؟» ثم تأخذك للصفحة أو للحجز مباشرة، ومستكشف بتبويبين يعرض خدمات القسمين.",
+      en: "A cool grey ground and white cards, petrol for adults and a warm sand for children. It works like a good health app: the hero asks who it's for and what brings you in, then takes you to the page or straight to booking; a two-tab explorer lays out both sections' services.",
     },
     motion: {
-      ar: "الفيلم يتقلب كملصق يُقلب على ظهره (انتقال flip من Remotion)، شريط يمر بكل الخدمات بأسمائها، وشنب الشعار يتحرك.",
-      en: "The film turns over like a sticker being flipped (Remotion flip), a ticker runs every service by name, and the logo's moustache wiggles.",
+      ar: "الفيلم ينزلق بين المشاهد كما ينتقل التطبيق بين البطاقات (slide من Remotion)، وبطاقة د. أسامة مثبتة عليه.",
+      en: "The film slides between scenes the way an app moves between cards (Remotion slide), with Dr. Osama's card pinned to it.",
     },
-    chooseIf: { ar: "تريدون الأجرأ والأكثر مرحاً، والأقرب لجيل الشباب والآباء الجدد.", en: "you want the boldest and most fun, closest to young men and new parents." },
-    skin: STICKER, film: StickerHero, frames: STICKER_FRAMES,
-    fonts: ["Marhey", "Rubik"],
-    swatches: { adults: ["#7FE0C8", "#CFF5EA"], kids: ["#FFB3C7", "#FFE0EA"] },
-    stage: "radial-gradient(#1B153014 1.2px, transparent 1.4px) 0 0 / 16px 16px, #F8F5FF",
+    chooseIf: { ar: "تريدون الأحدث والأسرع وصولاً للحجز، والأقرب لجيل الشباب والآباء الجدد.", en: "you want the most contemporary and the fastest route to booking, closest to young men and new parents." },
+    skin: PRECISION, film: PrecisionHero, frames: HERO_FRAMES,
+    fonts: ["Alexandria", "Readex Pro"],
+    swatches: { adults: ["#0D5C6B", "#E2EEF1"], kids: ["#A2672A", "#F5ECE0"] },
+    stage: "radial-gradient(70% 80% at 100% 0%, #E6EEF1, transparent 70%), #F4F6F8",
   },
 ];
 
@@ -88,7 +88,7 @@ const DIRS: Direction[] = [
 const TODAY: { now: L; fix: L }[] = [
   {
     now: { ar: "القائمة قائمة واحدة طويلة؛ ستة روابط منها عن الدعامات، وموضوعا الأطفال الوحيدان (التبول اللاإرادي وتأخر البلوغ) مدفونان تحت «الرجل».", en: "The menu is one long list; six links are about implants, and the only two children's topics (bedwetting, delayed puberty) sit under “The man”." },
-    fix: { ar: "قسمان لكل منهما صفحته وخدماته ولونه، ومفتاح «الكبار / الأطفال» في أعلى كل صفحة.", en: "Two sections, each with its own page, services and colour, and an Adults / Kids switch at the top of every page." },
+    fix: { ar: "قسمان لكل منهما صفحته وخدماته ولونه، ومفتاح «الكبار / الأطفال» في أعلى كل صفحة.", en: "Two sections, each with its own page, services and colour, and an Adults / Children switch at the top of every page." },
   },
   {
     now: { ar: "في الرئيسية يظهر الأطفال في بطاقة واحدة من تسع، وبطاقة التبول اللاإرادي تحمل نص الدعامة نفسه.", en: "On the home page children get one card of nine, and the bedwetting card carries the implant card's text." },
@@ -103,19 +103,19 @@ const TODAY: { now: L; fix: L }[] = [
 /** Every place the two sections show, with a page that shows it. */
 const STRESS: { t: L; d: L; href: string }[] = [
   { t: { ar: "الرئيسية مفترق طرق", en: "Home is a fork" }, d: { ar: "بابان كبيران قبل أي شيء آخر.", en: "Two big doors before anything else." }, href: "" },
-  { t: { ar: "مفتاح في كل صفحة", en: "A switch on every page" }, d: { ar: "الكبار / الأطفال في الهيدر، دائماً.", en: "Adults / Kids in the header, always." }, href: "/adults" },
+  { t: { ar: "مفتاح في كل صفحة", en: "A switch on every page" }, d: { ar: "الكبار / الأطفال في الهيدر، دائماً.", en: "Adults / Children in the header, always." }, href: "/adults" },
   { t: { ar: "لون لكل قسم", en: "A colour per section" }, d: { ar: "الموقع كله يغيّر لونه حسب القسم.", en: "The whole site changes colour with the section." }, href: "/kids" },
-  { t: { ar: "انتقال بين العالمين", en: "A wipe between worlds" }, d: { ar: "دائرة بلون القسم تفتح عند العبور.", en: "A circle in the section's colour opens as you cross." }, href: "/kids" },
+  { t: { ar: "إشارة عند التنقل", en: "A cue as you cross" }, d: { ar: "خط بلون القسم يعبر أعلى الشاشة.", en: "A line in the section's colour runs across the top." }, href: "/kids" },
   { t: { ar: "الحجز يبدأ بـ«لمن؟»", en: "Booking starts with “who for?”" }, d: { ar: "لي أو لابني، ثم أسئلة تناسب كل حالة.", en: "Me or my son, then questions that fit each." }, href: "/book" },
   { t: { ar: "حسب عمر ابنك", en: "By your son's age" }, d: { ar: "رضيع، طفل، مراهق، مع ما يجب مراقبته.", en: "Baby, child, teen, with what to watch for." }, href: "/kids" },
   { t: { ar: "حالة طارئة واضحة", en: "An emergency you can't miss" }, d: { ar: "التواء الخصية: اتصل الآن، لا تحجز.", en: "Testicular torsion: call now, don't book." }, href: "/s/torsion" },
-  { t: { ar: "شريط الهاتف", en: "The phone tab bar" }, d: { ar: "الكبار والأطفال بجوار زر الحجز.", en: "Adults and Kids either side of Book." }, href: "/kids" },
+  { t: { ar: "شريط الهاتف", en: "The phone tab bar" }, d: { ar: "الكبار والأطفال بجوار زر الحجز.", en: "Adults and Children either side of Book." }, href: "/kids" },
 ];
 
 const PAGES: { label: L; path: string; w?: World }[] = [
   { label: { ar: "الرئيسية", en: "Home" }, path: "" },
   { label: { ar: "قسم الكبار", en: "Adults section" }, path: "/adults", w: "adults" },
-  { label: { ar: "قسم الأطفال", en: "Kids section" }, path: "/kids", w: "kids" },
+  { label: { ar: "قسم الأطفال", en: "Children's section" }, path: "/kids", w: "kids" },
   { label: { ar: "خدمة: دعامة العضو الذكري", en: "Service: penile implants" }, path: "/s/implants", w: "adults" },
   { label: { ar: "خدمة: الخصية المعلقة", en: "Service: undescended testis" }, path: "/s/undescended", w: "kids" },
   { label: { ar: "طارئ: التواء الخصية", en: "Emergency: testicular torsion" }, path: "/s/torsion", w: "kids" },
@@ -155,7 +155,7 @@ export function Overview() {
       <header className="ov-top">
         <div className="ov-wrap ov-top-in">
           <img src={logo} alt={t(BRAND.name)} className="ov-logo" />
-          <span className="ov-top-t">{t({ ar: "اتجاهات الموقع · الجولة الأولى", en: "Website directions · round one" })}</span>
+          <span className="ov-top-t">{t({ ar: "اتجاهات الموقع · الجولة الثانية", en: "Website directions · round two" })}</span>
           <LangToggle className="ov-lang" />
         </div>
       </header>
@@ -172,8 +172,8 @@ export function Overview() {
           <Reveal delay={0.16} y={12}>
             <p className="ov-lead">
               {t({
-                ar: "ثلاثة مواقع كاملة، كل منها بالعربية أولاً والإنجليزية بضغطة. كلها مبنية على البنية الجديدة نفسها: قسم للكبار وقسم للأطفال، ظاهران في كل صفحة. الاختلاف في الشكل والحركة والإحساس.",
-                en: "Three complete sites, each in Arabic first with English one tap away. All three share the same new structure: an adults section and a kids section, visible on every page. They differ in look, motion and feel.",
+                ar: "ثلاثة مواقع كاملة بطابع طبي احترافي، كل منها بالعربية أولاً والإنجليزية بضغطة. كلها مبنية على البنية نفسها: قسم للكبار وقسم للأطفال، ظاهران في كل صفحة. الاختلاف في الشكل والحركة والإحساس.",
+                en: "Three complete sites in a professional medical register, each in Arabic first with English one tap away. All three share one structure: an adults section and a children's section, visible on every page. They differ in look, motion and feel.",
               })}
             </p>
           </Reveal>
@@ -210,7 +210,7 @@ export function Overview() {
             <div className="ov-map-worlds">
               {(["adults", "kids"] as World[]).map((w) => (
                 <div key={w} className="ov-map-world" data-ow={w}>
-                  <b><WorldGlyph world={w} size={20} />{t(w === "adults" ? { ar: "قسم الكبار", en: "Adults section" } : { ar: "قسم الأطفال", en: "Kids section" })}</b>
+                  <b><WorldGlyph world={w} size={20} />{t(w === "adults" ? { ar: "قسم الكبار", en: "Adults section" } : { ar: "قسم الأطفال", en: "Children's section" })}</b>
                   <span>{t(w === "adults"
                     ? { ar: "ما الذي يقلقك · 8 خدمات · رحلتك · أسئلة · تقييمات · مقالات", en: "What's on your mind · 8 services · your visit · FAQ · reviews · articles" }
                     : { ar: "ما الذي يقلقك · 8 خدمات · حسب العمر · طارئ · رحلتك · أسئلة · مقالات", en: "What's on your mind · 8 services · by age · emergency · your visit · FAQ · articles" })}</span>
@@ -225,7 +225,7 @@ export function Overview() {
           <RevealGroup className="ov-stress" each={0.05}>
             {STRESS.map((s, i) => (
               <RevealItem key={i}>
-                <a className="ov-stress-a" href={`#bubble${s.href}`}>
+                <a className="ov-stress-a" href={`#clarity${s.href}`}>
                   <span className="ov-stress-n u-tnum">{String(i + 1).padStart(2, "0")}</span>
                   <b>{t(s.t)}</b>
                   <span>{t(s.d)}</span>
@@ -252,7 +252,7 @@ export function Overview() {
                     {(["adults", "kids"] as World[]).map((w) => (
                       <span key={w}>
                         {d.swatches[w].map((c) => <i key={c} style={{ background: c }} title={c} />)}
-                        {t(w === "adults" ? { ar: "الكبار", en: "Adults" } : { ar: "الأطفال", en: "Kids" })}
+                        {t(w === "adults" ? { ar: "الكبار", en: "Adults" } : { ar: "الأطفال", en: "Children" })}
                       </span>
                     ))}
                   </dd>
@@ -263,7 +263,7 @@ export function Overview() {
               <div className="ov-dir-go">
                 <a className="ov-btn" href={`#${d.id}`}>{t({ ar: `افتح ${d.letter}`, en: `Open ${d.letter}` })}<ArrowUpRight size={17} className="u-flip" /></a>
                 <a className="ov-btn ov-btn-ghost" href={`#${d.id}/adults`}><WorldGlyph world="adults" size={17} />{t({ ar: "الكبار", en: "Adults" })}</a>
-                <a className="ov-btn ov-btn-ghost" href={`#${d.id}/kids`}><WorldGlyph world="kids" size={17} />{t({ ar: "الأطفال", en: "Kids" })}</a>
+                <a className="ov-btn ov-btn-ghost" href={`#${d.id}/kids`}><WorldGlyph world="kids" size={17} />{t({ ar: "الأطفال", en: "Children" })}</a>
               </div>
             </div>
           </div>

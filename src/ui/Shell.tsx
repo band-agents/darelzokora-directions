@@ -12,7 +12,7 @@ import { useLang } from "@/lib/i18n";
 import { Footer, Header, MobileBar, WorldWipe } from "./chrome";
 import { ArticlesPage, BookPage, BranchesPage, DoctorPage, ServicePage } from "./pages";
 import { SiteProvider, makeTo, type Skin } from "./site";
-import { Balloon, Bubble, Star } from "@/remotion/art";
+import { GrowthCurve, Rings } from "@/remotion/art";
 import mark from "@/brand/logo-mark.svg";
 
 export function Shell({ dir, page, className, skin, Home, World }: {
@@ -43,24 +43,20 @@ export function Shell({ dir, page, className, skin, Home, World }: {
   );
 }
 
-/** Static door illustrations, drawn with the same pieces as the films. */
-export function DoorArt({ world, outline }: { world: World; outline?: boolean }): ReactNode {
+/** Static door illustrations, drawn with the same pieces as the films and coloured by the door's world. */
+export function DoorArt({ world }: { world: World }): ReactNode {
   if (world === "adults") {
     return (
       <svg viewBox="0 0 300 300" width="100%" aria-hidden>
-        <Bubble x={90} y={80} r={34} t={0} />
-        <Bubble x={250} y={230} r={26} t={0.3} />
-        <circle cx={170} cy={160} r={96} fill="rgba(255,255,255,0.75)" stroke={outline ? "#1B1530" : "#fff"} strokeWidth={outline ? 5 : 3} />
-        <image href={mark} x={98} y={110} width={144} height={100} />
+        <Rings cx={150} cy={150} r={70} gap={26} n={4} t={0.12} color="var(--accent)" />
+        <circle cx={150} cy={150} r={58} fill="var(--surface)" />
+        <image href={mark} x={105} y={119} width={90} height={62} />
       </svg>
     );
   }
   return (
-    <svg viewBox="0 0 300 300" width="100%" aria-hidden>
-      <Star x={60} y={70} r={20} color="#fff" t={0} />
-      <Star x={260} y={150} r={16} color="#fff" t={0.4} />
-      <Balloon x={130} y={120} s={0.9} color="#FFB3A7" t={0} />
-      <Balloon x={210} y={100} s={1.05} color="#FFE07A" t={0.3} />
+    <svg viewBox="0 0 1000 640" width="100%" aria-hidden>
+      <GrowthCurve x={60} y={60} w={880} h={520} t={0.3} color="var(--accent)" soft="var(--surface)" ink="var(--ink)" bare />
     </svg>
   );
 }

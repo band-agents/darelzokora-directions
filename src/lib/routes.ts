@@ -1,12 +1,12 @@
 /**
  * Routes: #<direction>/<page>[/<id>]
  *
- *   #bubble               home
- *   #bubble/adults        the adults world
- *   #bubble/kids          the kids world
- *   #bubble/s/torsion     one service (its world comes from the service)
- *   #bubble/book[/kids|/s/<id>]   booking, optionally pre-set
- *   #bubble/doctor  #bubble/branches  #bubble/articles
+ *   #clarity               home
+ *   #clarity/adults        the adults world
+ *   #clarity/kids          the kids world
+ *   #clarity/s/torsion     one service (its world comes from the service)
+ *   #clarity/book[/kids|/s/<id>]   booking, optionally pre-set
+ *   #clarity/doctor  #clarity/branches  #clarity/articles
  *
  * An empty hash is the overview board. Hash routing because the build is
  * served from GitHub Pages and also shipped as a single standalone file.
@@ -15,9 +15,9 @@
 import { serviceById, type World } from "@/content";
 
 export const DIRECTIONS = [
-  { id: "bubble", letter: "A", name: { ar: "فقاعة", en: "Bubble" } },
-  { id: "split", letter: "B", name: { ar: "نصفان", en: "Split" } },
-  { id: "sticker", letter: "C", name: { ar: "ملصق", en: "Sticker" } },
+  { id: "clarity", letter: "A", name: { ar: "وضوح", en: "Clarity" } },
+  { id: "prestige", letter: "B", name: { ar: "وقار", en: "Prestige" } },
+  { id: "precision", letter: "C", name: { ar: "دقة", en: "Precision" } },
 ] as const;
 export type DirId = (typeof DIRECTIONS)[number]["id"];
 

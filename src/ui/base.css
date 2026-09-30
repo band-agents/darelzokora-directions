@@ -1,6 +1,6 @@
 /* ═══ Shared base ════════════════════════════════════════════
    Mechanics and sensible defaults for every z-* component. Each direction
-   sets the tokens on its root (.bu, .sp, .st) and overrides the look.
+   sets the tokens on its root (.cl, .pr, .pc) and overrides the look.
    Only logical properties (inline/block, start/end), so Arabic (rtl) and
    English (ltr) lay out from the same rules. */
 
@@ -49,7 +49,7 @@ button svg, a svg { flex-shrink: 0; }
    pulls joined letters apart, so Arabic headings get more leading and none. */
 .z-site[lang="ar"] .z-h1 { line-height: 1.32; }
 .z-site[lang="ar"] .z-h2 { line-height: 1.35; }
-.z-site[lang="ar"] :is(.z-h1, .z-h2, .z-h3, .z-door-t, .sp-half-t, .z-stat-v) { letter-spacing: 0; }
+.z-site[lang="ar"] :is(.z-h1, .z-h2, .z-h3, .z-door-t, .pr-half-t, .z-stat-v) { letter-spacing: 0; }
 .z-lead { font-size: clamp(16px, 1.4vw, 18.5px); color: var(--muted); max-width: 60ch; margin-top: 16px; }
 .z-shead { margin-bottom: clamp(28px, 4vw, 48px); display: grid; gap: 12px; }
 .z-shead.is-center { text-align: center; justify-items: center; }
@@ -59,16 +59,16 @@ button svg, a svg { flex-shrink: 0; }
 .z-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding-inline: 24px;
   border-radius: var(--btn-radius, 999px); font-weight: 700; font-size: 15.5px; text-decoration: none; white-space: nowrap;
-  transition: transform .25s, box-shadow .25s, background-color .25s, color .25s;
+  transition: box-shadow .25s, background-color .25s, color .25s, filter .25s;
 }
 .z-btn-sm { min-height: 42px; padding-inline: 18px; font-size: 14.5px; }
 .z-btn-lg { min-height: 58px; padding-inline: 30px; font-size: 17px; }
 .z-btn-primary { background: var(--accent); color: var(--on); }
-.z-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px color-mix(in srgb, var(--accent) 35%, transparent); }
+.z-btn-primary:hover { filter: brightness(.9); }
 .z-btn-ghost { background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--line-strong); }
 .z-btn-ghost:hover { box-shadow: inset 0 0 0 1.5px var(--accent); color: var(--accent-ink); }
 .z-btn-urgent { background: #C8322B; color: #fff; }
-.z-btn:disabled { opacity: .45; transform: none; box-shadow: none; cursor: not-allowed; }
+.z-btn:disabled { opacity: .45; filter: none; cursor: not-allowed; }
 .z-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-ink); font-weight: 700; text-decoration: none; }
 .z-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 
@@ -128,13 +128,14 @@ button svg, a svg { flex-shrink: 0; }
   .z-site { padding-bottom: 84px; }
 }
 
-/* ── World wipe ── */
-.z-wipe { position: fixed; inset: 0; z-index: 70; pointer-events: none; background: var(--soft); }
+/* ── World change: a thin bar in the new section's colour runs across the top ── */
+.z-wipe { position: fixed; inset-inline: 0; top: 0; height: 3px; z-index: 70; pointer-events: none; background: var(--accent); transform-origin: var(--wipe-from, left); }
+[dir="rtl"] .z-wipe { --wipe-from: right; }
 
 /* ── Doors ── */
 .z-doors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .z-door-in { position: relative; display: grid; gap: 8px; align-content: start; min-height: 100%; padding: clamp(24px, 3vw, 40px); border-radius: var(--radius-lg); background: var(--soft); text-decoration: none; overflow: hidden; isolation: isolate; transition: transform .35s; }
-.z-door-in:hover { transform: translateY(-4px); }
+.z-door-in:hover { transform: translateY(-2px); }
 .z-door-art { position: absolute; inset-block-start: 0; inset-inline-end: 0; width: 44%; max-width: 240px; opacity: .95; z-index: -1; }
 .z-door-aud { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--accent-ink); }
 .z-door-t { font-family: var(--display); font-size: clamp(38px, 5vw, 64px); line-height: 1.05; color: var(--ink); }
@@ -151,8 +152,8 @@ button svg, a svg { flex-shrink: 0; }
 .z-concern-h { font-family: var(--display); font-size: clamp(22px, 2.4vw, 30px); }
 .z-concern-hint { color: var(--muted); margin-top: 4px; }
 .z-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-.z-chip { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 999px; background: var(--soft); color: var(--ink); font-weight: 600; text-decoration: none; transition: background-color .2s, transform .2s; }
-.z-chip:hover { background: var(--accent); color: var(--on); transform: translateY(-2px); }
+.z-chip { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 999px; background: var(--soft); color: var(--ink); font-weight: 600; text-decoration: none; transition: background-color .2s, color .2s, box-shadow .2s; }
+.z-chip:hover { background: var(--accent); color: var(--on); }
 .z-chip.is-urgent { background: #FDE2DF; color: #9A231D; }
 .z-chip.is-urgent:hover { background: #C8322B; color: #fff; }
 
@@ -160,7 +161,7 @@ button svg, a svg { flex-shrink: 0; }
 .z-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .z-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .z-card { display: flex; flex-direction: column; gap: 8px; height: 100%; padding: 22px; border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); text-decoration: none; transition: transform .3s, box-shadow .3s; }
-.z-card:hover { transform: translateY(-4px); }
+.z-card:hover { transform: translateY(-2px); }
 .z-card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
 .z-card-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 16px; background: var(--soft); color: var(--accent-ink); }
 .z-card-n { font-weight: 800; color: var(--muted); }
@@ -192,8 +193,7 @@ button svg, a svg { flex-shrink: 0; }
 
 /* ── Emergency ── */
 .z-emergency { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px; padding: 20px 24px; border-radius: var(--radius); background: #FFF0EE; box-shadow: inset 0 0 0 1.5px #F5B5AF; }
-.z-emergency-icon { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 50%; background: #C8322B; color: #fff; animation: z-pulse 1.8s ease-out infinite; }
-@keyframes z-pulse { 0% { box-shadow: 0 0 0 0 rgba(200, 50, 43, .45); } 80%, 100% { box-shadow: 0 0 0 14px rgba(200, 50, 43, 0); } }
+.z-emergency-icon { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 50%; background: #B42A24; color: #fff; }
 .z-emergency-k { font-weight: 800; color: #9A231D; font-size: 13px; }
 .z-emergency-t { font-family: var(--display); font-size: clamp(18px, 1.8vw, 22px); color: #5E1611; }
 .z-emergency-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
@@ -323,7 +323,7 @@ button svg, a svg { flex-shrink: 0; }
 .z-book-q { font-family: var(--display); font-size: clamp(22px, 2.4vw, 28px); margin-bottom: 18px; }
 .z-book-worlds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .z-book-world { position: relative; display: grid; justify-items: center; gap: 6px; padding: 28px 16px; border-radius: var(--radius); background: var(--soft); text-align: center; cursor: pointer; color: var(--accent-ink); box-shadow: inset 0 0 0 2px transparent; transition: box-shadow .2s, transform .2s; }
-.z-book-world:hover { transform: translateY(-2px); }
+.z-book-world:hover { box-shadow: inset 0 0 0 2px var(--line-strong); }
 .z-book-world.is-on { box-shadow: inset 0 0 0 3px var(--accent); }
 .z-book-world b { font-family: var(--display); font-size: 24px; color: var(--ink); }
 .z-book-world span { font-size: 14px; color: var(--muted); }
@@ -393,4 +393,3 @@ button svg, a svg { flex-shrink: 0; }
 .sw a[aria-current="page"] { background: #fff; color: #0B1622; }
 @media (max-width: 760px) { .sw { bottom: calc(92px + env(safe-area-inset-bottom, 0px)); inset-inline-start: 8px; } .sw .sw-name { display: none; } }
 
-@media (prefers-reduced-motion: reduce) { .z-emergency-icon { animation: none; } }

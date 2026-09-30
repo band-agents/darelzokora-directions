@@ -15,8 +15,8 @@ export interface Skin {
   /** Display face, passed into the Remotion compositions. */
   displayFont: string;
   ink: string;
-  hero: { adults: [string, string]; kids: [string, string]; doctor: [string, string]; accentA: string; accentK: string };
-  worldArt: { adults: [string, string]; kids: [string, string]; accentA: string; accentK: string; outline: boolean };
+  hero: { adults: [string, string]; kids: [string, string]; doctor: [string, string]; accentA: string; accentK: string; card?: string; round?: boolean };
+  worldArt: { adults: [string, string]; kids: [string, string]; accentA: string; accentK: string };
 }
 
 export interface SiteCtx { dir: DirId; page: Page; world?: World; skin: Skin; to: (p: Page) => string }
@@ -34,20 +34,16 @@ export const ICONS: Record<string, LucideIcon> = {
   Shapes, ShieldCheck, Siren, Sparkles, Spline, Sprout, Timer,
 };
 
-/** The two world glyphs: the brand's moustache for adults, a balloon for kids. */
+/**
+ * The two world glyphs, drawn as line icons to match lucide: the male symbol
+ * from the logo for adults, a child for the children's section.
+ */
 export function WorldGlyph({ world, size = 22 }: { world: World; size?: number }) {
-  if (world === "adults") {
-    return (
-      <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden fill="currentColor">
-        <path d="M24 22c-3-5-10-7-15-3-3 2-5 6-8 5 2 5 8 8 14 6 4-1 7-4 9-5 2 1 5 4 9 5 6 2 12-1 14-6-3 1-5-3-8-5-5-4-12-2-15 3z" />
-      </svg>
-    );
-  }
+  if (world === "kids") return <Baby size={size} strokeWidth={1.75} aria-hidden />;
   return (
-    <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden fill="currentColor">
-      <ellipse cx="24" cy="18" rx="12" ry="14" />
-      <path d="M22 32h4l-2 3z" />
-      <path d="M24 35c2 4-2 6 0 11" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="10" cy="14" r="6" />
+      <path d="M14.5 9.5 20 4M15 4h5v5" />
     </svg>
   );
 }
